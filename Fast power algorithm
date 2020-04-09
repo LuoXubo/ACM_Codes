@@ -1,0 +1,17 @@
+//Calculate a^b mod c(1<=a,b,c<=1e9)
+// b=27=(11011)2
+//a^b=a^16 * a^8 * a^2 * a^1
+//codes:
+long long pow(long long a, long long b, long long c)
+{
+  long long ans=1;
+  while(b)
+  {
+    if（b%2--1)
+      ans=(ans*a)%c;
+    b=b/2;
+    a=a*a%c;
+  }
+  return ans;
+}
+// Time O(log2(b))
