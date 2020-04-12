@@ -1,0 +1,29 @@
+//Factorization prime factor
+#include<iostream>
+using namespace std;
+void prim(int m);
+int main()
+{
+	int n;
+	cout << "please input a num:" << endl; 
+	cin >> n;
+	prim(n);
+	return 0;
+} 
+								
+void prim(int m) 				//m is the target number
+{
+	int i = 2;   				//Beginning from the least prime 2 
+	while(i < m) 				 
+	{
+		if(m % i == 0) 			
+		{
+			cout << i << "*";  	
+			m /= i; 			//Refresh m
+		}
+		else 
+			i++; 				
+	}
+	cout << m; 					
+		
+} 
