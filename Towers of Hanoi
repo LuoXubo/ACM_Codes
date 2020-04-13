@@ -1,0 +1,30 @@
+// This program solves the Towers of Hanoi puzzle.
+
+#include <iostream>
+void moveSingleDisk(char start, char finish)
+{
+	printf("%c -> %c\n",start,finish);
+}
+
+void moveTower(int n, char start, char finish, char tmp) 
+// Moves a tower of size n from the start spire to the finish spire using the tmp spire as the temporart repository.
+{
+	if(n==1)
+		moveSingleDisk(start, finish);
+	else
+	{
+		moveTower(n-1,start,tmp,finish);
+		moveSingleDisk(start, finish);
+		moveTower(n-1,tmp,finish,start);
+	}
+}
+int main()
+{
+    int n;
+		printf("Enter number of disks: \n");
+		scanf("%d",&n);
+		printf("\n");
+		moveTower(n,'A','B','C');
+		printf("\n");
+    return 0;
+}
